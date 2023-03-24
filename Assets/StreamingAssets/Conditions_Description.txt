@@ -1,0 +1,11 @@
+P001:
+Changes in environmental structure: Right aperture varies between 1.5 (extended action capability) and 0.5 (constricted action capability) 
+
+P002: 
+Changes in environmental structure: Left aperture varies between 1.5 (extended action capability) and 0.5 (constricted action capability) 
+
+P003:
+Changes in bodily (cube) action capability where cube size varies with right aperture consistently (maintaining a 1:1 ratio) so that the left aperture (remaining at size 1) varies in ratio (constricted for larger block sizes, extended for smaller)
+
+P004:
+Changes in bodily (cube) action capability where cube size varies with left aperture consistently (maintaining a 1:1 ratio) so that the right aperture (remaining at size 1) varies in ratio (constricted for larger block sizes, extended for smaller)
