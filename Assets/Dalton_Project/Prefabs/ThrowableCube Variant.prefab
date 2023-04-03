@@ -16,24 +16,6 @@ MonoBehaviour:
   sphere: {fileID: 6458255946149463882, guid: 286da1429aa748742969bc81d0c7aaea, type: 3}
   ObjectSize: 0
   experimentManager: {fileID: 0}
---- !u!114 &7411191095659057410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4242927956208749369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d95b119677b6a7499b65b4af6c1aec8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  session: {fileID: 0}
-  TargetSpaceDestroyed: 0
-  NextTrial: 0
-  trialActive: 0
-  other: {fileID: 0}
-  experimentManager: {fileID: 0}
 --- !u!114 &-1950920720633473237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,6 +38,26 @@ MonoBehaviour:
   - rot_y
   - rot_z
   updateType: 0
+--- !u!114 &7411191095659057410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4242927956208749369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d95b119677b6a7499b65b4af6c1aec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  session: {fileID: 0}
+  TargetSpaceDestroyed: 0
+  NextTrial: 0
+  trialActive: 0
+  hitcolor: {r: 1, g: 0, b: 0, a: 1}
+  other: {fileID: 0}
+  route_name: 
+  experimentManager: {fileID: 0}
 --- !u!1001 &4243065941108094103
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66,6 +68,10 @@ PrefabInstance:
     - target: {fileID: 1000010777624494, guid: fb710a001890d9a44bb74a8ce4f20cc0, type: 3}
       propertyPath: m_Name
       value: ThrowableCube Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010777624494, guid: fb710a001890d9a44bb74a8ce4f20cc0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1000010777624494, guid: fb710a001890d9a44bb74a8ce4f20cc0, type: 3}
       propertyPath: m_TagString

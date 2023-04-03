@@ -11,7 +11,8 @@ public class trialEnvironment : MonoBehaviour
 
     public GameObject leftTarget;
     public GameObject rightTarget;
-   // public GameObject heldObject;
+    public GameObject startbutton;
+    public float start_location;
     public GameObject goal;
     public GameObject targets;
     public bool targetsStatus;
@@ -27,6 +28,9 @@ public class trialEnvironment : MonoBehaviour
     public float expTrial;
 
     public Session session;
+    public int trialNumber;
+
+    public float obj_to_target_scale = .7f;
       
     
     public void PresentStimulus(Trial trial)
@@ -43,16 +47,33 @@ public class trialEnvironment : MonoBehaviour
             rightTarget_size = trial.settings.GetFloat("right_target_size");
 
             // get handheld object size
-            heldObject_size = trial.settings.GetFloat("object_size") - .1f;
+            heldObject_size = trial.settings.GetFloat("object_size") - .075f;
+
+            // get start button location
+            start_location = trial.settings.GetFloat("start_location");
+
 
 
             // transform targets
-            leftTarget.transform.localScale = leftTarget_size * new Vector3(1f, 1f, 1f);
-            rightTarget.transform.localScale = rightTarget_size * new Vector3(1f, 1f, 1f);
+            leftTarget.transform.localScale = leftTarget_size * new Vector3(obj_to_target_scale, obj_to_target_scale, obj_to_target_scale);
+            rightTarget.transform.localScale = rightTarget_size * new Vector3(obj_to_target_scale, obj_to_target_scale, obj_to_target_scale);
+
+            // makes targets disappear if experimental trial = 0
             targets.transform.localScale = expTrial * new Vector3(1f, 1f, 1f);
+
+            if(expTrial == 0)
+            {
+                goal.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            } else
+            {
+                goal.transform.localScale = new Vector3(0f, 0f, 0f);
+            }
             
             // transform object
             heldObject.transform.localScale = heldObject_size * new Vector3(1f, 1f, 1f);
+
+            // transform start button location
+            startbutton.transform.localPosition = new Vector3(start_location, 0.75f, -0.3f);
 
             // print trial information to console
             Debug.LogFormat("trialEnvironment: Running trial {0}", trial.number);
@@ -60,7 +81,7 @@ public class trialEnvironment : MonoBehaviour
             Debug.LogFormat("trialEnvironment: The 'left target size' for this trial is: {0}", leftTarget_size);
             Debug.LogFormat("trialEnvironment: The 'right target size' for this trial is: {0}", rightTarget_size);
             Debug.LogFormat("trialEnvironment: The 'object size' for this trial is: {0}", heldObject_size);
-
+            Debug.LogFormat("trialEnvironment: The 'start location' for this trial is: {0}", start_location);
             //ReactivateTargets();
 
         }
@@ -68,13 +89,17 @@ public class trialEnvironment : MonoBehaviour
 
     void StartTrial()
     {
+
             // transform targets
-            leftTarget.transform.localScale = leftTarget_size * new Vector3(1f, 1f, 1f);
-            rightTarget.transform.localScale = rightTarget_size * new Vector3(1f, 1f, 1f);
-            targets.transform.localScale = expTrial * new Vector3(1f, 1f, 1f);
+            //leftTarget.transform.localScale = leftTarget_size * new Vector3(1f, 1f, 1f);
+            //rightTarget.transform.localScale = rightTarget_size * new Vector3(1f, 1f, 1f);
+            //targets.transform.localScale = expTrial * new Vector3(1f, 1f, 1f);
             
             // transform object
             heldObject.transform.localScale = heldObject_size * new Vector3(1f, 1f, 1f);
+
+            // transform start button
+           // startbutton.transform.localPosition = new Vector3(start_location, 1.7f, -0.25f);
 
         if (trialActive == false) {
             // start new trial in UXF
@@ -85,7 +110,7 @@ public class trialEnvironment : MonoBehaviour
 
     public void ReactivateTargets()
     {
-        heldObject = GameObject.FindGameObjectWithTag("ThrowableCube");
+        heldObject = GameObject.FindGameObjectWithTag("ThrowableBall");
         goal.SetActive(true);
         targets.SetActive(true);
         

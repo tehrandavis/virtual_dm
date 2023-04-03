@@ -10,6 +10,7 @@ TagManager:
   - TargetBorder
   - TargetSpace
   - Goal
+  - ThrowableBall
   layers:
   - Default
   - TransparentFX

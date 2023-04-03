@@ -10,6 +10,10 @@ public class ObjectSpawner : MonoBehaviour
    // public trialEnvironment other;
     public float ObjectSize;
 
+    //public float objectAppearX;
+    //public float objectAppearY;
+    //public float objectAppearZ;
+
     public GameObject experimentManager;
 
     // public void update (){
@@ -21,13 +25,15 @@ public class ObjectSpawner : MonoBehaviour
     {
         if (SpawnerIndex == 0)
         {
-            if (GameObject.FindWithTag("ThrowableCube") != null)
+            if (GameObject.FindWithTag("ThrowableBall") != null)
             {
+                Destroy(GameObject.FindWithTag("ThrowableBall"));
+                Instantiate(sphere, transform.position,Quaternion.identity, null);
                 Debug.Log("Object Spawner Do Nothing");
             }
             else
             {
-                Instantiate(cube, transform.position, transform.rotation, null);
+                Instantiate(sphere, transform.position,Quaternion.identity, null);
                 //cube.transform.localScale = ObjectSize * new Vector3(1f, 1f, 1f);
 
             }

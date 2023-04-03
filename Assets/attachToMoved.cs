@@ -16,17 +16,17 @@ public class attachToMoved : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.FindWithTag("ThrowableCube") !=null)
+        if(GameObject.FindWithTag("ThrowableBall") !=null)
         {
-            Debug.Log("movedObject exists");
+            //Debug.Log("movedObject exists");
 
-            tracked_Object = GameObject.FindWithTag("ThrowableCube");
+            tracked_Object = GameObject.FindWithTag("ThrowableBall");
 
             transform.position = tracked_Object.transform.position;
             
         } else
         {
-            Debug.Log("movedObject doesn't exist");
+            //Debug.Log("movedObject doesn't exist");
         }
         
 
