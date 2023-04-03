@@ -30,6 +30,8 @@ public class trialEnvironment : MonoBehaviour
     public Session session;
     public int trialNumber;
 
+    public string selection;
+
     public float obj_to_target_scale = .7f;
       
     

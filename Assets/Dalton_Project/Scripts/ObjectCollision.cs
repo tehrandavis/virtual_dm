@@ -86,7 +86,7 @@ public class ObjectCollision: MonoBehaviour
         {
             selection = coll.gameObject.name;
             Debug.Log(selection);
-            session.CurrentTrial.result["selected_route"] = selection;
+            //session.CurrentTrial.result["selected_route"] = selection;
             targets.transform.localScale = new Vector3(0f, 0f, 0f);
             targets.SetActive(false);
 
