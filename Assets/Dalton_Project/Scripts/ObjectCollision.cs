@@ -17,7 +17,7 @@ public class ObjectCollision: MonoBehaviour
     private GameObject goal;
     public trialEnvironment other;
 
-    public string route_name;
+    public string selection;
 
     public GameObject experimentManager;
 
@@ -84,8 +84,9 @@ public class ObjectCollision: MonoBehaviour
     {     
         if (coll.gameObject.tag == "TargetSpace")
         {
-            route_name = coll.gameObject.name;
-            Debug.Log(route_name);
+            selection = coll.gameObject.name;
+            Debug.Log(selection);
+            session.CurrentTrial.result["selected_route"] = selection;
             targets.transform.localScale = new Vector3(0f, 0f, 0f);
             targets.SetActive(false);
 
