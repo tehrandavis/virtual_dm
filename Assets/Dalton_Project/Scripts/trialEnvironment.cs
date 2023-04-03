@@ -33,6 +33,12 @@ public class trialEnvironment : MonoBehaviour
     public string selection;
 
     public float obj_to_target_scale = .7f;
+
+    public float left_target_x;
+    public float right_target_x;
+
+    float left_adjustment;
+    float right_adjustment;
       
     
     public void PresentStimulus(Trial trial)
@@ -49,16 +55,26 @@ public class trialEnvironment : MonoBehaviour
             rightTarget_size = trial.settings.GetFloat("right_target_size");
 
             // get handheld object size
-            heldObject_size = trial.settings.GetFloat("object_size") - .075f;
+            heldObject_size = trial.settings.GetFloat("object_size") - .025f;
 
             // get start button location
             start_location = trial.settings.GetFloat("start_location");
 
 
 
-            // transform targets
+            // transform targets size
             leftTarget.transform.localScale = leftTarget_size * new Vector3(obj_to_target_scale, obj_to_target_scale, obj_to_target_scale);
             rightTarget.transform.localScale = rightTarget_size * new Vector3(obj_to_target_scale, obj_to_target_scale, obj_to_target_scale);
+
+            left_adjustment = leftTarget_size * obj_to_target_scale;
+            right_adjustment = rightTarget_size * obj_to_target_scale;
+
+            left_target_x = (left_adjustment - 1f) * .1f;
+            right_target_x = (right_adjustment - 1f) * .1F;
+
+            // transform targets position
+            leftTarget.transform.localPosition = new Vector3(left_target_x, -0.05f, 0f);
+            rightTarget.transform.localPosition = new Vector3(right_target_x, 0.16f, 0f);
 
             // makes targets disappear if experimental trial = 0
             targets.transform.localScale = expTrial * new Vector3(1f, 1f, 1f);
@@ -75,7 +91,7 @@ public class trialEnvironment : MonoBehaviour
             heldObject.transform.localScale = heldObject_size * new Vector3(1f, 1f, 1f);
 
             // transform start button location
-            startbutton.transform.localPosition = new Vector3(start_location, 0.75f, -0.3f);
+            //startbutton.transform.localPosition = new Vector3(start_location, 0.75f, -0.3f);
 
             // print trial information to console
             Debug.LogFormat("trialEnvironment: Running trial {0}", trial.number);
