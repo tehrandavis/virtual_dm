@@ -8,6 +8,10 @@ public class playerController : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] Camera playerHead;
 
+    public float speed = 5.0f;
+
+
+
     [ContextMenu("Reset Position")]
     
     public void resetPosition()
@@ -23,6 +27,10 @@ public class playerController : MonoBehaviour
                                 playerHead.transform.position;
         player.transform.position += distanceDiff;
     }
+
+
+
+
 
 
 
