@@ -6,6 +6,7 @@ public class changeColor : MonoBehaviour
 {
     public GameObject eMgr;
     public int trial = 0; // set initial value of trial to 0
+    public int trans = 0;
     public Color object_color = Color.white; // set initial value of object_color to white
 
     // Start is called before the first frame update
@@ -16,8 +17,10 @@ public class changeColor : MonoBehaviour
     void Update()
     {
         trial = eMgr.GetComponent<trialEnvironment>().sequence_number;
+        trans = eMgr.GetComponent<trialEnvironment>().trans;
 
-        if (trial == 3)
+
+        if (trial == trans)
         {
             object_color = Color.red; // set object_color to red
             Renderer rend = GetComponent<Renderer>(); // get the Renderer component
