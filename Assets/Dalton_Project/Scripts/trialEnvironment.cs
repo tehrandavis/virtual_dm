@@ -41,8 +41,6 @@ public class trialEnvironment : MonoBehaviour
     float right_adjustment;
 
     public int sequence_number;
-
-    public int trans;
       
     
     public void PresentStimulus(Trial trial)
@@ -63,11 +61,6 @@ public class trialEnvironment : MonoBehaviour
 
             // get start button location
             start_location = trial.settings.GetFloat("start_location");
-
-            // get trial sequence number
-            sequence_number = trial.settings.GetInt("sequence");
-
-            trans = trial.settings.GetInt("trans");
 
 
 
